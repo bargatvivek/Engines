@@ -25,7 +25,19 @@ namespace PromotionEngine.Core.Promotions
 
                 if (itemsHavingA != null)
                 {
-                    itemsHavingA.PromotionApplied = true;
+                    var count = itemsHavingA.Quantity;
+
+                    if (count >= 3)
+                    {
+                        var remaining = count % 3;
+                        var mutiple = count / 3;
+                        itemsHavingA.PromotionApplied = true;
+                        itemsHavingA.TotalCost = (130 * mutiple) + (itemsHavingA.Price * remaining);
+                    }
+                    else
+                    {
+                        itemsHavingA.TotalCost = itemsHavingA.Price * count;
+                    }
                 }
             }
         }

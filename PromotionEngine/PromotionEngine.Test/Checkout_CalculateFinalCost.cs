@@ -31,5 +31,13 @@ namespace PromotionEngine.Test
             Assert.AreEqual(item.PromotionApplied, true);
         }
 
+        [Test]
+        public void Buy_3_items_of_same_sku_for_fixed_price_3AsFor130_Return_230_for_5A()
+        {
+            _checkout.CalculateFinalCost(_cart);
+            var item = _cart.GetItems().Where(x => x.SKUId == 'A').FirstOrDefault();
+            Assert.AreEqual(item.TotalCost, 230);
+        }
+
     }
 }
