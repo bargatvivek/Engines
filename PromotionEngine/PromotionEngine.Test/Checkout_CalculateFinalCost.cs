@@ -39,5 +39,17 @@ namespace PromotionEngine.Test
             Assert.AreEqual(item.TotalCost, 230);
         }
 
+        [Test]
+        [Description("Promotion2 : Buy SKU 1 & SKU 2 for a fixed price (C + D = 30)")]
+        public void Buy_sku1_and_sku2_for_fixed_price_C_and_D_for_30_PromotionShouldNotApplied()
+        {
+            _checkout.CalculateFinalCost(_cart);
+            var itemC = _cart.GetItems().Where(x => x.SKUId == 'C').FirstOrDefault();
+            var itemD = _cart.GetItems().Where(x => x.SKUId == 'D').FirstOrDefault();
+
+            Assert.AreEqual(itemD, null);
+            Assert.AreEqual(itemC.PromotionApplied, false);
+        }
+
     }
 }

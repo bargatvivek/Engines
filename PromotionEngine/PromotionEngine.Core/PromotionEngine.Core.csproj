@@ -48,6 +48,7 @@
     <Compile Include="Model\Item.cs" />
     <Compile Include="Promotions\IPromotion.cs" />
     <Compile Include="Promotions\Buy3SameSKUForFixedPrice.cs" />
+    <Compile Include="Promotions\BuySKU1AndSKU2ForFixedPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
