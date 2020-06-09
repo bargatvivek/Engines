@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace PromotionEngine.Core.Promotions
 {
-    public class Buy3SameSKUForFixedPrice : IPromotion
+    public class Buy3AForFixedPrice : IPromotion
     {
         public string PromotionDetails { get; private set; }
 
-        public Buy3SameSKUForFixedPrice()
+        public Buy3AForFixedPrice()
         {
             PromotionDetails = "Buy '3' items of a SKU for a fixed price (3 A's for 130)";
         }

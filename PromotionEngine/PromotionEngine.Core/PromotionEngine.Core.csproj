@@ -47,8 +47,9 @@
     <Compile Include="ICart.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Promotions\IPromotion.cs" />
-    <Compile Include="Promotions\Buy3SameSKUForFixedPrice.cs" />
-    <Compile Include="Promotions\BuySKU1AndSKU2ForFixedPrice.cs" />
+    <Compile Include="Promotions\Buy3AForFixedPrice.cs" />
+    <Compile Include="Promotions\BuyCAndDForFixedPrice.cs" />
+    <Compile Include="Promotions\Buy2BForFixedPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

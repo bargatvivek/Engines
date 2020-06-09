@@ -2,11 +2,11 @@
 
 namespace PromotionEngine.Core.Promotions
 {
-    public class BuySKU1AndSKU2ForFixedPrice : IPromotion
+    public class BuyCAndDForFixedPrice : IPromotion
     {
         public string PromotionDetails { get; private set; }
 
-        public BuySKU1AndSKU2ForFixedPrice()
+        public BuyCAndDForFixedPrice()
         {
             PromotionDetails = "Buy SKU 1 & SKU 2 for a fixed price (C + D = 30)";
         }

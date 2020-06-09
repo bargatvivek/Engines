@@ -24,6 +24,7 @@ namespace PromotionEngine.Test
         }
 
         [Test]
+        [Description("Promotion1 : Buy '3' items of a SKU for a fixed price (3 A's for 130)")]
         public void Buy_3_items_of_same_sku_for_fixed_price_3AsFor130_AppliedOrNot()
         {
             _checkout.CalculateFinalCost(_cart);
@@ -33,6 +34,7 @@ namespace PromotionEngine.Test
         }
 
         [Test]
+        [Description("Promotion1 : Buy '3' items of a SKU for a fixed price (3 A's for 130)")]
         public void Buy_3_items_of_same_sku_for_fixed_price_3AsFor130_Return_230_for_5A()
         {
             _checkout.CalculateFinalCost(_cart);
@@ -62,6 +64,27 @@ namespace PromotionEngine.Test
 
             Assert.AreEqual(itemD, null);
             Assert.AreEqual(itemC.Price * itemC.Quantity, Stock.sku['C']);
+        }
+
+
+        [Test]
+        [Description("Promotion3 : Buy '2' items of a SKU for a fixed price (2 of B's for 45)")]
+        public void Buy_2_items_of_same_sku_for_fixed_price_2Bs_for_45_AppliedOrNot()
+        {
+            _checkout.CalculateFinalCost(_cart);
+            var item = _cart.GetItems().Where(x => x.SKUId == 'B').FirstOrDefault();
+
+            Assert.AreEqual(item.PromotionApplied, true);
+        }
+
+        [Test]
+        [Description("Promotion3 : Buy '2' items of a SKU for a fixed price (2 of B's for 45)")]
+        public void Buy_2_items_of_same_sku_for_fixed_price_2Bs_for_45_return_120_for_5B()
+        {
+            _checkout.CalculateFinalCost(_cart);
+            var item = _cart.GetItems().Where(x => x.SKUId == 'B').FirstOrDefault();
+
+            Assert.AreEqual(item.TotalCost, 120);
         }
 
     }

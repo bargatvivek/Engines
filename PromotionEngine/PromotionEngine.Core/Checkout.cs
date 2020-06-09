@@ -9,17 +9,34 @@ namespace PromotionEngine.Core
 
         public Checkout()
         {
-            _promotions.Add(new Buy3SameSKUForFixedPrice());
+            _promotions.Add(new Buy3AForFixedPrice());
+            _promotions.Add(new BuyCAndDForFixedPrice());
+            _promotions.Add(new Buy2BForFixedPrice());
         }
 
         public decimal CalculateFinalCost(ICart cart)
         {
-            decimal finalcost = 0;
+            decimal finalCost = 0;
+
+            // Apply promotion, if any
             foreach (var promotion in _promotions)
             {
                 promotion.CalculateCost(cart);
             }
-            return finalcost;
+
+            // calculate total cost for the item in cart, to whom promotion is not applied
+            foreach (var item in cart.GetItems())
+            {
+                if (!item.PromotionApplied && item.Quantity > 1 && item.TotalCost == 0)
+                {
+                    finalCost += item.Quantity * item.Price;
+                }
+                else
+                {
+                    finalCost += item.TotalCost;
+                }
+            }
+            return finalCost;
         }
     }
 }
