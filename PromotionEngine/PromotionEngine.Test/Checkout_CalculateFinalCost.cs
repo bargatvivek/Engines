@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using PromotionEngine.Core;
 using PromotionEngine.Core.Model;
+using PromotionEngine.Core.DataStore;
 using System.Linq;
 
 namespace PromotionEngine.Test
@@ -49,6 +50,18 @@ namespace PromotionEngine.Test
 
             Assert.AreEqual(itemD, null);
             Assert.AreEqual(itemC.PromotionApplied, false);
+        }
+
+        [Test]
+        [Description("Promotion2 : Buy SKU 1 & SKU 2 for a fixed price (C + D = 30)")]
+        public void BuySKU1andSKU2ForFixedPrice_CAndDFor30_ReturnActualCostOfC()
+        {
+            _checkout.CalculateFinalCost(_cart);
+            var itemC = _cart.GetItems().Where(x => x.SKUId == 'C').FirstOrDefault();
+            var itemD = _cart.GetItems().Where(x => x.SKUId == 'D').FirstOrDefault();
+
+            Assert.AreEqual(itemD, null);
+            Assert.AreEqual(itemC.Price * itemC.Quantity, Stock.sku['C']);
         }
 
     }

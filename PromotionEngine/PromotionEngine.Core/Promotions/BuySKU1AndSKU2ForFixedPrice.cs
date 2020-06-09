@@ -25,7 +25,27 @@ namespace PromotionEngine.Core.Promotions
                     if (itemsHavingC.Quantity == 1 && itemsHavingD.Quantity == 1)
                     {
                         itemsHavingC.PromotionApplied = true;
+                        itemsHavingC.TotalCost = 0;
+
                         itemsHavingD.PromotionApplied = true;
+                        itemsHavingD.TotalCost = 30;
+                    }
+                    else
+                    {
+                        itemsHavingC.TotalCost = itemsHavingC.Quantity * itemsHavingC.Price;
+                        itemsHavingD.TotalCost = itemsHavingD.Quantity * itemsHavingD.Price;
+                    }
+                }
+                else
+                {
+                    if (itemsHavingC != null && itemsHavingC.Quantity != 0)
+                    {
+                        itemsHavingC.TotalCost = itemsHavingC.Quantity * itemsHavingC.Price;
+                    }
+
+                    if (itemsHavingD != null && itemsHavingD.Quantity != 0)
+                    {
+                        itemsHavingD.TotalCost = itemsHavingD.Quantity * itemsHavingD.Price;
                     }
                 }
             }
