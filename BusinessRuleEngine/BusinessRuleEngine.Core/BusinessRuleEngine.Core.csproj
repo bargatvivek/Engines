@@ -51,6 +51,7 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="Membership\ActivateMembership.cs" />
     <Compile Include="Membership\ActivateOrUpgradeMembership.cs" />
+    <Compile Include="Membership\UpgradeMembership.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Product\Book.cs" />
     <Compile Include="Product\BookOrPhysicalProduct.cs" />

@@ -46,5 +46,14 @@ namespace BusinessRuleEngine.Core.Test
                 "activate the membership"
             });
         }
+
+        [Test]
+        public void If_payment_for_upgrade_membership_email_and_apply_upgrade()
+        {
+            var payment = new Payment();
+            List<string> actions = payment.PaymentFor(new ActivateOrUpgradeMembership(new UpgradeMembership()));
+
+            CollectionAssert.AreEqual(actions, new List<string>() { "email the owner and inform them of the activation/upgrade", "apply the upgrade" });
+        }
     }
 }
