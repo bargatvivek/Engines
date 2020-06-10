@@ -52,6 +52,7 @@
     <Compile Include="Payment.cs" />
     <Compile Include="Product\Book.cs" />
     <Compile Include="Product\BookOrPhysicalProduct.cs" />
+    <Compile Include="Product\PhysicalProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\BusinessRuleEngine_Tests.cs" />
   </ItemGroup>

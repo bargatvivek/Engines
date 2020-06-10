@@ -16,8 +16,21 @@ namespace BusinessRuleEngine.Core.Test
             CollectionAssert.AreEqual(actions, new List<string>()
                                                     {
                                                       "generate a commission payment to the agent",
-                                                       "create a duplicate packing slip for the royality department" 
+                                                       "create a duplicate packing slip for the royality department"
                                                     });
+        }
+
+        [Test]
+        public void If_payment_for_physical_product_generate_commission_and_packing_slip()
+        {
+            var payment = new Payment();
+            List<string> actions = payment.PaymentFor(new BookOrPhysicalProduct(new PhysicalProduct()));
+
+            CollectionAssert.AreEqual(actions, new List<string>()
+                                                    {
+                                        "generate a commission payment to the agent",
+                                        "generate a packing slip for shipping"
+            });
         }
     }
 }
